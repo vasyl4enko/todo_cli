@@ -1,22 +1,20 @@
-//  task.rs: структура Task, метод new, метод display
-
-struct Task {
+pub struct Task {
     id: u32,
     text: String,
     done: bool,
 }
 
 impl Task {
-    fn new(text: String) -> Self {
+    pub fn new(id: u32, text: String) -> Self {
         Self {
-            id: 0,
+            id,
             text,
             done: false,
         }
     }
 
-    fn display(&self) {
+    pub fn display(&self) -> String {
         let status = if self.done { "Done " } else { "Not done " };
-        println!("{}: {}", status, self.text);
+        format!("{}: {}", status, self.text)
     }
 }
